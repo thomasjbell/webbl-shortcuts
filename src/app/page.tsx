@@ -12,6 +12,7 @@ import {
   Cloud,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import LittleLogo from "@/components/LittleLogo";
 
 // Example shortcuts data - in your actual app, you'd load this from an external JSON file
 const shortcutsData = [
@@ -133,7 +134,8 @@ export default function App() {
       {/* Header */}
       <div className="container mx-auto px-6 py-8">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mt-8 mb-4 text-stone-100">
+          <LittleLogo className="mx-auto w-32 h-32" />
+          <h1 className="text-4xl font-bold my-2 mb-4 text-stone-100">
             webbl shortcuts
           </h1>
           <motion.div
@@ -150,7 +152,7 @@ export default function App() {
         </div>
 
         {/* Shortcuts Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-48">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-24">
           {shortcuts.map((shortcut) => (
             <button
               key={shortcut.id}
@@ -165,10 +167,10 @@ export default function App() {
                   {getIcon(shortcut.icon)}
                 </div>
                 <div className="text-center">
-                  <div className="font-semibold text-stone-100 text-sm group-hover:text-white transition-colors duration-200">
+                  <div className="font-semibold text-stone-100 text-md group-hover:text-white transition-colors duration-200">
                     {shortcut.title}
                   </div>
-                  <div className="text-xs text-stone-500 mt-1 group-hover:text-stone-400 transition-colors duration-200">
+                  <div className="text-sm text-stone-500 mt-1 group-hover:text-stone-400 transition-colors duration-200">
                     {shortcut.category}
                   </div>
                 </div>
@@ -176,6 +178,15 @@ export default function App() {
             </button>
           ))}
         </div>
+        <p className="text-center text-stone-500 mt-16">
+          Brought to you by{" "}
+          <a
+            href="https://webbldesign.vercel.app"
+            className="hover:bg-gradient-to-r hover:from-violet-400 hover:to-fuchsia-400 hover:bg-clip-text hover:text-transparent transition-colors duration-200"
+          >
+            webbl design
+          </a>
+        </p>
 
         {/* Empty State */}
         {shortcuts.length === 0 && (
